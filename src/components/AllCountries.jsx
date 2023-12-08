@@ -1,5 +1,5 @@
-// in the parameter of this function, pass in the allCountries and addToDoList props
-const AllCountries = ({ allCountries, addToList }) => {
+// in the parameter of this function, pass in the allCountries, addToDoList, and myCountries props
+const AllCountries = ({ allCountries, addToList, myCountries }) => {
   // allCountries is an array of data so lets map through it
   // country represents each object in the allCountries array
   // idx represents the index of each object in the array
@@ -12,7 +12,15 @@ const AllCountries = ({ allCountries, addToList }) => {
         <h2>{country.name.common}</h2>
         {/* we'll also show a button with an onClick function */}
         {/* the onClick will take in the individual country */}
-        <button onClick={() => addToList(country)}>Add to My List</button>
+
+        {/* check if the current country that is being clicked is currently in the myCountries array */}
+        {/* if it is the button she be disabled */}
+        <button
+          disabled={myCountries.includes(country) ? true : false}
+          onClick={() => addToList(country)}
+        >
+          Add to My List
+        </button>
       </div>
     )
   })
