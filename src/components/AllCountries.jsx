@@ -24,6 +24,11 @@ const AllCountries = ({ allCountries, addToList, myCountries }) => {
       </div>
     )
   })
-  return <div>{countries}</div>
+  return (
+    <div>
+      <h1>All Countries List</h1>
+      {countries}
+    </div>
+  )
 }
 export default AllCountries
